@@ -9,6 +9,9 @@ import org.openqa.selenium.WebElement;
 
 public class ThirdExerciseTwoFieldsAndOutput extends NavigationTest{
 
+    String numberInput1 = "100";
+    String numberInput2 = "200";
+
     @Before
     public void setUp() {
         initialize();
@@ -17,6 +20,7 @@ public class ThirdExerciseTwoFieldsAndOutput extends NavigationTest{
     @Test
     public void testSecondExerciseSingleFieldButton() {
         driver.get("https://web.archive.org/web/20180926132852/http://www.seleniumeasy.com/test/basic-first-form-demo.html");
+
         // Navigate to the "Input Forms" menu
         driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/a")).click();
         // Navigate to "Simple Form Demo"
@@ -26,13 +30,13 @@ public class ThirdExerciseTwoFieldsAndOutput extends NavigationTest{
 //    <input type="text" class="form-control" placeholder="Enter value" id="sum1">
         WebElement firstValueBox = driver.findElement(By.id("sum1"));
         firstValueBox.click();
-        firstValueBox.sendKeys("6");
+        firstValueBox.sendKeys(numberInput1);
 
 //      Second value
 //    <input type="text" class="form-control" placeholder="Enter value" id="sum1">
         WebElement secondValueBox = driver.findElement(By.id("sum2"));
         secondValueBox.click();
-        secondValueBox.sendKeys("10");
+        secondValueBox.sendKeys(numberInput2);
 
 //        submit button
         //*[@id="gettotal"]/button
@@ -42,19 +46,43 @@ public class ThirdExerciseTwoFieldsAndOutput extends NavigationTest{
 //        show result in span
 //        <span id="displayvalue">15</span>
         //*[@id="displayvalue"]
-        WebElement text = driver.findElement(By.id("displayvalue"));
-        System.out.println(text.getText());
+        String calculatedValue = driver.findElement(By.id("displayvalue")).getText();
+        System.out.println(calculatedValue);
 
-        String calculatedValue = text.getText();
-        String expectedValue = "15";
-        if (expectedValue.equals(calculatedValue)) {
-            System.out.println("The test ran successfully, the answer is correct: " + calculatedValue);
+        if (!isNumeric(calculatedValue)) {
+            System.out.println("values given are not numbers");
         } else {
-            System.out.println("The test has failed, the answer does not match the expected value. The expected value was " + expectedValue + ", but you've got " + calculatedValue);
+            if (this.isResultCorrect(calculatedValue)) {
+                System.out.println("The test ran successfully, the answer is correct: " + calculatedValue);
+            } else {
+                System.out.println("The test has failed, the answer does not match the expected value. The expected value was " + calculateValue() + ", but you've got " + calculatedValue);
+            }
         }
 
         System.out.println("Third task finished");
 
+    }
+
+    public String calculateValue() {
+        int sum = Integer.parseInt(this.numberInput1) + Integer.parseInt(this.numberInput2);
+        return Integer.toString(sum);
+    }
+    private boolean isResultCorrect(String calculatedValue) {
+        int sum = Integer.parseInt(this.numberInput1) + Integer.parseInt(this.numberInput2);
+        return sum == Integer.parseInt(calculatedValue);
+    }
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        } else {
+            try {
+                int var1 = Integer.parseInt(strNum);
+                return true;
+            } catch (NumberFormatException var2) {
+                return false;
+            }
+        }
     }
     @After
     public void tearDown() {
