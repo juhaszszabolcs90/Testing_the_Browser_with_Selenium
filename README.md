@@ -7,19 +7,19 @@ Use your prefered IDE and the following tools: java, maven, junit, selenium webd
 
 ### First exercise - Navigation:
 
-Open the base url. Using the "Menu List" navigate to All Examples/Input Forms/Simpe Form Demo
+Open the base url. Using the "Menu List" navigate to All Examples/Input Forms/Simple Form Demo
 Base url: https://www.seleniumeasy.com/test/
 That's it.
 Make sure that you click on visible menu items.
 
 ### Second exercise - Single field & Button:
 
-Navigate to Simpe Form Demo. In "Single Input Field" enter a message into the field and click "Show Message" button. Validate that the message appeared.
+Navigate to Simple Form Demo. In "Single Input Field" enter a message into the field and click "Show Message" button. Validate that the message appeared.
 Wasn't that hard, was it?
 
 ### Third exercise - Two fields & Output:
 
-Navigate to Simpe Form Demo. In "Two Input Fields" enter value A and B and click the "Get Total" button. Validate that the answer is correct.
+Navigate to Simple Form Demo. In "Two Input Fields" enter value A and B and click the "Get Total" button. Validate that the answer is correct.
 Does your test works even when you enter very large numbers?
 
 ### Fourth exercise - Checkbox:
