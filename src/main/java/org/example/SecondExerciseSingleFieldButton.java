@@ -7,14 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class SecondExerciseSingleFieldButton {
-    private WebDriver driver;
+public class SecondExerciseSingleFieldButton extends TestSetup{
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        initialize();
     }
 
     @Test
@@ -35,11 +32,11 @@ public class SecondExerciseSingleFieldButton {
 
         WebElement text = driver.findElement(By.xpath("//*[@id=\"display\"]"));
         System.out.println(text.getText());
-        System.out.println(text);
+        System.out.println("Second task finished");
     }
     @After
     public void tearDown() {
-        driver.quit();
+        super.tearDown();
     }
 }
 

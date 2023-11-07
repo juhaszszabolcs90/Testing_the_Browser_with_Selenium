@@ -6,14 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class NavigationTest {
-    private WebDriver driver;
+public class NavigationTest extends TestSetup{
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        initialize();
     }
 
     @Test
@@ -29,10 +26,11 @@ public class NavigationTest {
 
         // Navigate to the "Simple Form Demo" menu
         driver.findElement(By.xpath("//*[@id=\"treemenu\"]/li/ul/li[1]/ul/li[1]/a")).click();
+        System.out.println("First task finished");
     }
 
     @After
     public void tearDown() {
-        driver.quit();
+        super.tearDown();
     }
 }
