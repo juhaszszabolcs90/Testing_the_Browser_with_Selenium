@@ -20,8 +20,8 @@ public class Main {
             thirdExercise.tearDown();
 
         } finally {
-            secondExercise.tearDown();
             navigationTest.tearDown();
+            secondExercise.tearDown();
             thirdExercise.tearDown();
         }
     }
