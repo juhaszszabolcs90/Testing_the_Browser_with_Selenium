@@ -7,13 +7,13 @@ public class Main {
         ThirdExerciseTwoFieldsAndOutput thirdExercise = new ThirdExerciseTwoFieldsAndOutput();
 
         try {
-//            navigationTest.setUp();
-//            navigationTest.testNavigation();
-//            navigationTest.tearDown();
-//
-//            secondExercise.setUp();
-//            secondExercise.testSecondExerciseSingleFieldButton();
-//            secondExercise.tearDown();
+            navigationTest.setUp();
+            navigationTest.testNavigation();
+            navigationTest.tearDown();
+
+            secondExercise.setUp();
+            secondExercise.testSecondExerciseSingleFieldButton();
+            secondExercise.tearDown();
 
             thirdExercise.setUp();
             thirdExercise.testSecondExerciseSingleFieldButton();
